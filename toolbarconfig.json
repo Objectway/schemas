@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "toolbar_config",
+    "definitions": {
+        "switch": {
+            "type": "object",
+            "properties": {
+                "active": {   "type": "string"},
+                "list": {
+                    "type": "array",
+                    "items":  {"$ref": "#/definitions/switch_list"}
+                }
+            }
+        },
+        "switch_list": {
+            "type": "object",
+            "properties": {
+                "class": { "type": "string" },
+                "value": { "type": "string" }
+            }
+        },
+        "action": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "label": { "type": "string" },
+            "list": {"$ref": "#/definitions/action_list"}
+          }
+        },
+        "action_list": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "name": { "type": "string" },
+            "class": { "type": "string" },
+            "label": { "type": "boolean" }
+          }
+        }
+    },
+    "properties": {
+        "id": {
+            "type": "number"
+        },
+        "mandatory": {
+            "type": "boolean",
+            "defaultValue": false
+        },
+        "widgetTemplateId": {
+            "type": "number"
+        },
+        "widgetId": {
+            "type": "number"
+        },
+        "value": {
+            "view": {
+                "type": "string"
+            },
+            "extraContent": {
+                "type": "boolean",
+                "defaultValue": false
+            },
+            "length": {
+                "type": "number",
+                "defaultValue": "0"
+            },
+            "status": {
+                "type": "string",
+                "defaultValue": "closed"
+            },
+            "switches": {
+                "type": "array",
+                "items":  {"$ref": "#/definitions/switch"},
+                "defaultValue": []
+            },
+            "filters": {
+                "type": "array",
+                "items":  {"$ref": "#/filePath/filter"},
+                "defaultValue": []
+            },
+            "actions": {
+                "type": "array",
+                "items":  {"$ref": "#/definitions/action"},
+                "defaultValue": []
+            }
+        }
+    }
+}

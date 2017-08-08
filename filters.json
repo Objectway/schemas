@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "filter",
+    "definitions": {
+        "select": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "label": { "type": "string" },
+            "class": { "type": "string" },
+            "selected": {"$ref": "#/definitions/option"},
+            "options": {
+                "type": "array",
+                "items": {"$ref": "#/definitions/option"}
+            }
+          }
+        },
+        "multiple_select": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "label": { "type": "string" },
+            "class": { "type": "string" },
+            "labelSelected": { "type": "string" },
+            "labelSelectAll": { "type": "string" },
+            "labelSubmit": { "type": "string" },
+            "submitOnSelection": { "type": "boolean", "defaultValue": false },
+            "hideOnSelection": { "type": "boolean", "defaultValue": false },
+            "selected": {"$ref": "#/definitions/option"},
+            "options": {
+                "type": "array",
+                "items": {"$ref": "#/definitions/option"}
+            }
+          }
+        },
+        "search": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "placeholder": { "type": "string" },
+            "minLength": { "type": "number" },
+            "label": { "type": "string" }
+          }
+        },
+        "option": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "string" },
+            "label": { "type": "string" }
+          }
+        }
+    },
+    "properties": {
+        "genericLabel": { "type": "string" },
+        "length": { "type": "number" },
+        "label": { "type": "string" },
+        "select": {
+            "type": "array",
+            "items":  {"$ref": "#/definitions/select"}
+        },
+        "multipleSelect": {
+            "type": "array",
+            "items":  {"$ref": "#/definitions/multiple_select"}
+        },
+        "search": {"$ref": "#/definitions/search"}
+    }
+}
