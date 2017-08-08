@@ -44,8 +44,8 @@
               "labelSelected": { "type": "string" },
               "labelSelectAll": { "type": "string" },
               "labelSubmit": { "type": "string" },
-              "submitOnSelection": { "type": "boolean", "defaultValue": false },
-              "hideOnSelection": { "type": "boolean", "defaultValue": false },
+              "submitOnSelection": { "type": "boolean", "default": false },
+              "hideOnSelection": { "type": "boolean", "default": false },
               "selected": {
                 "type": "object",
                 "properties": {

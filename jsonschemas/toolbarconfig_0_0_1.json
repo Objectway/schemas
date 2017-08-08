@@ -7,7 +7,7 @@
         },
         "mandatory": {
             "type": "boolean",
-            "defaultValue": false
+            "default": false
         },
         "widgetTemplateId": {
             "type": "number"
@@ -21,15 +21,15 @@
             },
             "extraContent": {
                 "type": "boolean",
-                "defaultValue": false
+                "default": false
             },
             "length": {
                 "type": "number",
-                "defaultValue": "0"
+                "default": 0
             },
             "status": {
                 "type": "string",
-                "defaultValue": "closed"
+                "default": "closed"
             },
             "switches": {
                 "type": "array",
@@ -49,12 +49,12 @@
                         }
                     }
                 },
-                "defaultValue": []
+                "default": []
             },
             "filters": {
                 "type": "array",
                 "items":  {"$ref": "#/filePath/filter"},
-                "defaultValue": []
+                "default": []
             },
             "actions": {
                 "type": "array",
@@ -74,7 +74,7 @@
                         }
                     }
                 },
-                "defaultValue": []
+                "default": []
             }
         }
     }

@@ -5,15 +5,15 @@
   "properties": {
     "head": {
       "type": "boolean",
-      "defaultValue": true
+      "default": true
     },
     "elementsInPage": {
       "type": "number",
-      "defaultValue": "8"
+      "default": 8
     },
     "stickedColumns": {
       "type": "number",
-      "defaultValue": "2"
+      "default": 2
     },
     "columns": {
       "type": "array",
@@ -46,7 +46,7 @@
           }
         }
       },
-      "defaultValue": []
+      "default": []
     }
   }
 }
