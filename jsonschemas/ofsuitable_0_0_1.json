@@ -1,39 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "table_config",
-  "definitions": {
-    "column": {
-      "type": "object",
-      "properties": {
-        "key": { "type": "string" },
-        "label": { "type": "string" },
-        "className": { "type": "string" },
-        "isSortable": { "type": "boolean" },
-        "sortDesc": { "type": "boolean" },
-        "actions": {
-          "type": "array",
-          "items": {"$ref": "#/definitions/action"}
-        }
-      }
-    },
-    "action": {
-      "type": "object",
-      "properties": {
-        "status": { "type": "string" },
-        "label": { "type": "string" },
-        "list": {"$ref": "#/definitions/action_list"}
-      }
-    },
-    "action_list": {
-      "type": "object",
-      "properties": {
-        "type": { "type": "string" },
-        "name": { "type": "string" },
-        "class": { "type": "string" },
-        "label": { "type": "boolean" }
-      }
-    }
-  },
   "type": "object",
   "properties": {
     "head": {
@@ -50,7 +17,35 @@
     },
     "columns": {
       "type": "array",
-      "items":  {"$ref": "#/definitions/column"},
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "label": { "type": "string" },
+          "className": { "type": "string" },
+          "isSortable": { "type": "boolean" },
+          "sortDesc": { "type": "boolean" },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string" },
+                "label": { "type": "string" },
+                "list": {
+                  "type": "object",
+                  "properties": {
+                    "type": { "type": "string" },
+                    "name": { "type": "string" },
+                    "class": { "type": "string" },
+                    "label": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "defaultValue": []
     }
   }
