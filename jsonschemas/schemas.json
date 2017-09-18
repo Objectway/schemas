@@ -3,5 +3,9 @@
 	"ofsuitable_0_0_1.json",
 	"paginationconfig_0_0_1.json",
 	"schemas.json",
-	"toolbarconfig_0_0_1.json"
+	"toolbarconfig_0_0_1.json",
+	"cldrcurrencyoptions_0_0_1.json",
+	"cldrdateoptions_0_0_1.json",
+	"cldrnumberoptions_0_0_1.json",
+	"cldrrelativetimeoptions_0_0_1.json"
 ]
