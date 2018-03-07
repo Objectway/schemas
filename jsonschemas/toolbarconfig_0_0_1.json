@@ -2,80 +2,287 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "toolbar_config",
     "properties": {
-        "id": {
-            "type": "number"
+        "hidden": {
+            "type": "boolean"
         },
-        "mandatory": {
+        "view": {
+            "type": "string",
+            "default": "default"
+        },
+        "extraContent": {
             "type": "boolean",
             "default": false
         },
-        "widgetTemplateId": {
-            "type": "number"
+        "length": {
+            "type": "number",
+            "default": 0
         },
-        "widgetId": {
-            "type": "number"
+        "status": {
+            "type": "string",
+            "default": "closed"
         },
-        "value": {
-            "view": {
-                "type": "string"
+        "switch": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "string"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "class": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "conditionToShow": {
+                    "type": "boolean"
+                }
             },
-            "extraContent": {
-                "type": "boolean",
-                "default": false
-            },
-            "length": {
-                "type": "number",
-                "default": 0
-            },
-            "status": {
-                "type": "string",
-                "default": "closed"
-            },
-            "switches": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "active": { "type": "string"},
-                        "list": {
-                            "type": "array",
-                            "items": {
+            "required": ["active", "list"]
+        },
+        "filters": {
+            "type": "object",
+            "properties": {
+                "genericLabel": {
+                    "type": "string"
+                },
+                "select": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "class": {
+                                "type": "string"
+                            },
+                            "selected": {
                                 "type": "object",
                                 "properties": {
-                                    "class": { "type": "string" },
-                                    "value": { "type": "string" }
+                                    "value": {
+                                        "type": ["string", "number"]
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "label": {
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 },
-                "default": []
-            },
-            "filters": {
-                "type": "array",
-                "items":  {"$ref": "#/filePath/filter"},
-                "default": []
-            },
-            "actions": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "status": { "type": "string" },
-                        "label": { "type": "string" },
-                        "list": {
-                            "type": "object",
-                            "properties": {
-                                "type": { "type": "string" },
-                                "name": { "type": "string" },
-                                "class": { "type": "string" },
-                                "label": { "type": "boolean" }
+                "multipleSelect": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "class": {
+                                "type": "string"
+                            },
+                            "labelSelected": {
+                                "type": "string"
+                            },
+                            "labelSubmit": {
+                                "type": "string"
+                            },
+                            "labelSelectAll": {
+                                "type": "string"
+                            },
+                            "selected": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "label": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "label": {
+                                            "type": "string"
+                                        },
+                                        "selected": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            "submitOnSelection": {
+                                "type": "boolean"
+                            },
+                            "hideOnSelection": {
+                                "type": "boolean"
+                            },
+                            "optionsCheckedMask": {
+                                "type": "array",
+                                "items": {
+                                    "type": "boolean"
+                                }
+                            }
+
+                        }
+                    }
+                },
+                "fast": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "label": {
+                                "type": "string"
+                            },
+                            "class": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "boolean"
+                            },
+                            "isLabelVisible": {
+                                "type": "boolean"
                             }
                         }
                     }
                 },
-                "default": []
+                "tab": {
+                    "type": "object",
+                    "properties": {
+                        "active": {
+                            "type": "string"
+                        },
+                        "list": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "search": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "placeholder": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "value": {
+                            "type": "string"
+                        },
+                        "minLength": {
+                            "type": "number"
+                        },
+                        "options": {
+                            "type": "object",
+                            "properties": {
+                                "searchOn": {
+                                    "type": "string",
+                                    "enum": ["KeyPress", "Enter"]
+                                }
+
+                            }
+                        }
+                    }
+                }
             }
+        },
+        "actions": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "class": {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            },
+                            "disabled": {
+                                "type": "boolean"
+                            },
+                            "value": {
+                                "type": "boolean"
+                            },
+                            "view": {
+                                "type": "string"
+                            }
+                        }
+                    }
+
+                }
+
+            },
+            "default": []
         }
     }
 }
