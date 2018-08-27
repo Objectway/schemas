@@ -227,6 +227,9 @@
                         "minLength": {
                             "type": "number"
                         },
+                        "ofsuiRegexPattern": {
+                            "type": "string"
+                        },
                         "options": {
                             "type": "object",
                             "properties": {
